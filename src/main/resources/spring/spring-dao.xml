@@ -9,12 +9,13 @@
     <!--配置整合mybatis过程-->
     <!--1.配置数据库相关参数属性文件-->
     <!--<context:property-placeholder location="classpath:jdbc.properties"/>-->
-    <bean id = "propertyConfigurer" class ="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+    <bean id = "propertyConfigurer" class ="com.iotch.util.EncryptPropertyPlaceholderConfigurer" >
         <property name = "locations" >
             <list>
                 <value>classpath:jdbc.druid.properties</value>
             </list>
         </property>
+        <property name="fileEncoding" value="UTF-8"/>
     </bean>
 
     <!--2.数据库连接池-->

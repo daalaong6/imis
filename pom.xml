@@ -187,6 +187,13 @@
     <!-- alibaba数据源druid end -->
     <!-- MySQL依赖 end -->
 
+    <!--缓存型数据库redis start-->
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+    <!--缓存型数据库redis end-->
 
     <!--图片处理-->
     <dependency>
@@ -194,8 +201,6 @@
       <artifactId>thumbnailator</artifactId>
       <version>0.4.8</version>
     </dependency>
-
-
 
     <!--icexls导入导出Excel工具-->
     <dependency>
