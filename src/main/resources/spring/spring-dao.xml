@@ -13,7 +13,6 @@
         <property name = "locations" >
             <list>
                 <value>classpath:jdbc.druid.properties</value>
-                <value>classpath:redis.properties</value>
             </list>
         </property>
         <property name="fileEncoding" value="UTF-8"/>

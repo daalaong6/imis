@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.iotch.dao.UserInfoDao">
+    <insert id="insert" parameterType="com.iotch.entity.UserInfo">
+        INSERT INTO
+        tt_user_info (User_Code,User_Password,User_Name,User_ID,User_Sex,User_Birth_Date,User_Reg_Date,User_Role_Code,
+        User_Region_Code,User_Addr,User_Postcode,User_Tel,User_Phone,User_Company,User_Status,User_Note)
+        VALUES
+        (#{userCode},#{userPassword},#{userName},#{userID},#{userSex},#{userBirthDate},#{userRegDate},#{userRole.roleCode},
+        #{userRegion.regionCode},#{userAdr},#{userPostode},#{userTel},#{userPhone},#{userCompany},#{userStatus},#{userNote})
+    </insert>
+
+    <delete id="delete" parameterType="com.iotch.entity.UserInfo">
+        DELETE tt_user_info WHERE User_Code = #{userCode}
+    </delete>
+
+    <update id="update" parameterType="com.iotch.entity.UserInfo">
+        UPDATE tt_user_info
+        <set>
+            <if test="userPassword!=null">User_Password = #{userPassword}</if>
+            <if test="userName!=null">User_Name = #{userName}</if>
+            <if test="userID!=null">User_ID = #{userID}</if>
+            <if test="userSex!=null">User_Sex = #{userSex}</if>
+            <if test="userBirthDate!=null">User_Birth_Date = #{userBirthDate}</if>
+            <if test="userRegDate!=null">User_Reg_Date = #{userRegDate}</if>
+            <if test="userRole!=null">User_Role_Code = #{userRole.roleCode}</if>
+            <if test="userRegion!=null">User_Region_Code = # {userRegion.regionCode}</if>
+            <if test="userAddr!=null">User_Addr = #{userAddr}</if>
+            <if test="userPostcode!=null">User_Postcode = # {userPostcode}</if>
+            <if test="userTel!=null">User_Tel = #{userTel}</if>
+            <if test="userPhone!=null">User_Tel = #{userPhone}</if>
+            <if test="userCompany!=null">User_Company =  #{userCompany}</if>
+            <if test="userStatus!=null">User_Status = #{userStatus}</if>
+            <if test="userNote!=null">User_Note = #{userNote} </if>
+        </set>
+        WHERE User_Code = #{userCode}
+    </update>
+
+    <select id="selectById" parameterType="String" resultType="com.iotch.entity.UserInfo">
+        SELECT * FROM tt_user_info where User_Code = #{userCode}
+    </select>
+
+    <select id="selectAll" resultType="com.iotch.entity.UserInfo">
+        SELECT * FROM tt_user_info
+    </select>
+
+    <select id="selectMatchEntity" parameterType="com.iotch.entity.UserInfo" resultType="com.iotch.entity.UserInfo">
+        SELECT * FROM tt_user_info
+        <trim prefix="WHERE" prefixOverrides="AND|OR">
+            <if test="userCode!=null">AND User_Code = #{userCode}</if>
+            <if test="userPassword!=null">AND User_Password = #{userPassword}</if>
+            <if test="userName!=null">AND User_Name = #{userName}</if>
+            <if test="userID!=null">AND User_ID = #{userID}</if>
+            <if test="userSex!=null">AND User_Sex = #{userSex}</if>
+            <if test="userBirthDate!=null">AND User_Birth_Date = #{userBirthDate}</if>
+            <if test="userRegDate!=null">AND User_Reg_Date = #{userRegDate}</if>
+            <if test="userRole!=null">AND User_Role_Code = #{userRole.roleCode}</if>
+            <if test="userRegion!=null">AND User_Region_Code = # {userRegion.regionCode}</if>
+            <if test="userAddr!=null">AND User_Addr = #{userAddr}</if>
+            <if test="userPostcode!=null">AND User_Postcode = # {userPostcode}</if>
+            <if test="userTel!=null">AND User_Tel = #{userTel}</if>
+            <if test="userPhone!=null">AND User_Tel = #{userPhone}</if>
+            <if test="userCompany!=null">AND User_Company =  #{userCompany}</if>
+            <if test="userStatus!=null">AND User_Status = #{userStatus}</if>
+            <if test="userNote!=null">AND User_Note = #{userNote} </if>
+        </trim>
+    </select>
+
+</mapper>
